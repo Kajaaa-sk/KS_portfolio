@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kajanan Satheeskumar, Copywriter</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#171719;
+  --ink-soft:#3C3C40;
+  --muted:#76767A;
+  --rule:#E2E2DC;
+  --bg:#FAFAF8;
+  --surface:#F3F3EF;
+  --dark:#171719;
+  --dark-2:#222226;
+  --blue:#3D7EFF;
+  --blue-dim:#EBF1FF;
+  --coral:#FF6E3C;
+  --coral-dim:#FFF0EB;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:200;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;
+  background:rgba(23,23,25,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-logo{font-family:'Crimson Pro',serif;font-size:1.15rem;font-weight:600;color:#fff;letter-spacing:0.01em}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;background:var(--dark);
+  display:grid;place-items:center;
+  padding:100px 5% 80px;
+  position:relative;overflow:hidden;
+}
+.hero-grid{
+  max-width:1060px;width:100%;
+  display:grid;grid-template-columns:1fr 480px;
+  gap:4rem;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:1.6rem;
+}
+.hero-eyebrow::before{content:'';width:24px;height:2px;background:var(--blue);flex-shrink:0}
+.hero-h1{
+  font-family:'Crimson Pro',serif;
+  font-size:clamp(3rem,6.5vw,5.8rem);
+  font-weight:300;line-height:1.05;color:#fff;
+  margin-bottom:1.6rem;
+}
+.hero-h1 em{font-style:italic;color:var(--blue)}
+.hero-lead{
+  font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.52);
+  font-weight:300;max-width:520px;margin-bottom:2.8rem;
+}
+.hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.85rem 1.8rem;transition:all 0.2s;cursor:pointer;border:none;
+}
+.btn-fill{background:var(--blue);color:#fff}
+.btn-fill:hover{background:#5590FF}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+.hero-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:2.4rem 2rem;
+}
+.hero-card-title{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:1.4rem;padding-bottom:1rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.hc-item{display:flex;align-items:flex-start;gap:0.8rem;margin-bottom:0.9rem}
+.hc-item:last-child{margin-bottom:0}
+.hc-dot{
+  width:6px;height:6px;background:var(--coral);border-radius:50%;
+  flex-shrink:0;margin-top:0.45em;
+}
+.hc-text{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.6;font-weight:300}
+
+/* ── SECTION SHARED ── */
+.section{padding:7rem 5%}
+.container{max-width:1060px;margin:0 auto}
+.eyebrow{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--blue);display:flex;align-items:center;gap:0.6rem;margin-bottom:0.9rem;
+}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--blue);flex-shrink:0}
+.section-h2{
+  font-family:'Crimson Pro',serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:400;
+  color:var(--ink);line-height:1.15;margin-bottom:3.5rem;
+}
+
+/* ── ABOUT ── */
+.about{background:var(--white)}
+.about-cols{display:grid;grid-template-columns:340px 1fr;gap:5rem;align-items:start}
+.about-sticky{position:sticky;top:90px}
+.about-name{
+  font-family:'Crimson Pro',serif;
+  font-size:2.6rem;font-weight:400;line-height:1.1;
+  color:var(--ink);margin-bottom:0.4rem;
+}
+.about-name em{font-style:italic;color:var(--blue)}
+.about-title-tag{
+  display:inline-block;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  background:var(--blue-dim);color:var(--blue);
+  padding:0.3rem 0.8rem;margin-bottom:1.6rem;
+}
+.about-pull{
+  font-size:1.05rem;line-height:1.7;color:var(--ink-soft);font-style:italic;
+  font-family:'Crimson Pro',serif;font-weight:400;
+  border-left:3px solid var(--coral);padding-left:1.2rem;margin-bottom:2rem;
+}
+.about-body p{
+  font-size:0.95rem;line-height:1.85;color:var(--ink-soft);
+  margin-bottom:1.2rem;font-weight:300;
+}
+.benefits-header{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);margin:2.4rem 0 1rem;
+}
+.benefit{
+  display:flex;gap:0.9rem;align-items:flex-start;
+  margin-bottom:0.75rem;font-size:0.9rem;color:var(--ink-soft);line-height:1.65;font-weight:300;
+}
+.benefit::before{
+  content:'→';color:var(--blue);font-size:0.85rem;
+  flex-shrink:0;margin-top:0.12em;font-weight:600;
+}
+
+/* ── WORK ── */
+.work{background:var(--surface)}
+.work-nav{
+  display:flex;gap:0;margin-bottom:3.5rem;
+  border-bottom:1px solid var(--rule);
+}
+.w-tab{
+  padding:0.9rem 1.6rem;background:none;border:none;cursor:pointer;
+  font-family:'Manrope',sans-serif;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.w-tab.on{color:var(--ink);border-bottom-color:var(--blue)}
+.w-tab:hover:not(.on){color:var(--ink)}
+.pane{display:none}.pane.on{display:block}
+
+.copy-meta{
+  display:inline-flex;align-items:center;gap:1.2rem;
+  margin-bottom:2rem;padding:0.5rem 1rem;
+  background:var(--white);border:1px solid var(--rule);
+}
+.copy-meta span{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);
+}
+.copy-meta span+span::before{content:'·';margin-right:1.2rem;color:var(--rule)}
+
+.copy-h1{
+  font-family:'Crimson Pro',serif;
+  font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;
+  color:var(--ink);line-height:1.2;margin-bottom:1.4rem;max-width:700px;
+}
+.copy-body{max-width:720px}
+.copy-body p{
+  font-size:0.96rem;line-height:1.9;color:var(--ink-soft);
+  margin-bottom:1.2rem;font-weight:300;
+}
+.copy-h2{
+  font-family:'Crimson Pro',serif;font-size:1.35rem;font-weight:600;
+  color:var(--ink);margin:2.2rem 0 0.7rem;
+}
+.copy-h3{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--coral);margin:2rem 0 0.6rem;
+}
+.copy-ul{margin:0.5rem 0 1.2rem;padding:0;list-style:none}
+.copy-ul li{
+  display:flex;gap:0.75rem;font-size:0.92rem;line-height:1.7;
+  color:var(--ink-soft);margin-bottom:0.45rem;font-weight:300;
+}
+.copy-ul li::before{content:'–';color:var(--blue);flex-shrink:0;font-weight:700}
+.copy-cta-line{
+  font-family:'Crimson Pro',serif;font-size:1.15rem;font-style:italic;
+  color:var(--ink);margin-top:1.8rem;
+}
+.copy-cta-line strong{font-style:normal}
+.copy-verdict{
+  border-left:3px solid var(--coral);
+  background:var(--coral-dim);
+  padding:1rem 1.4rem;margin:1.6rem 0;
+  font-size:0.94rem;line-height:1.7;color:var(--ink-soft);font-style:italic;
+}
+.copy-verdict strong{color:var(--ink);font-style:normal}
+.copy-rule{border:none;border-top:1px solid var(--rule);margin:2.5rem 0}
+.page-badge{
+  display:inline-block;
+  font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  background:var(--blue-dim);color:var(--blue);
+  padding:0.28rem 0.7rem;margin-bottom:1rem;
+}
+
+/* ── TESTIMONIALS ── */
+.testi{background:var(--dark)}
+.testi .eyebrow{color:rgba(61,126,255,0.9)}
+.testi .eyebrow::before{background:var(--blue)}
+.testi .section-h2{color:#fff;margin-bottom:3rem}
+.testi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.testi-card{
+  border:1px solid rgba(255,255,255,0.08);
+  padding:2rem 1.6rem;
+  position:relative;
+}
+.testi-mark{
+  font-family:'Crimson Pro',serif;
+  font-size:3.5rem;line-height:0.8;color:var(--blue);
+  opacity:0.5;margin-bottom:0.8rem;display:block;
+}
+.testi-q{
+  font-size:0.93rem;line-height:1.8;color:rgba(255,255,255,0.7);
+  font-weight:300;margin-bottom:1.6rem;font-style:italic;
+}
+.testi-divider{width:28px;height:2px;background:var(--blue);margin-bottom:0.9rem}
+.testi-who{font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.testi-role{font-size:0.8rem;color:rgba(255,255,255,0.3);margin-top:0.2rem;font-weight:300}
+
+/* ── CTA ── */
+.cta-section{background:var(--bg);padding:7rem 5%}
+.cta-inner{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:start;
+}
+.cta-h2{
+  font-family:'Crimson Pro',serif;
+  font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:400;
+  line-height:1.1;color:var(--ink);margin-bottom:1.2rem;
+}
+.cta-h2 em{font-style:italic;color:var(--blue)}
+.cta-sub{font-size:0.95rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:2.2rem}
+.cta-contact-panel{
+  background:var(--dark);padding:2.4rem 2rem;
+}
+.ccp-head{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-bottom:1.8rem;padding-bottom:1rem;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.ccp-row{margin-bottom:1.4rem}
+.ccp-row:last-of-type{margin-bottom:0}
+.ccp-label{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:0.3rem;
+}
+.ccp-val{font-size:0.97rem;color:rgba(255,255,255,0.85);font-weight:300}
+.ccp-divider{height:1px;background:rgba(255,255,255,0.06);margin:1.4rem 0}
+.cta-note{
+  font-size:0.82rem;color:var(--muted);margin-top:1.6rem;line-height:1.7;font-weight:300;
+  font-style:italic;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark-2);
+  padding:2rem 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.foot-brand{font-family:'Crimson Pro',serif;font-size:1rem;color:rgba(255,255,255,0.4);font-style:italic}
+.foot-tag{font-size:0.72rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 4%}
+  .section{padding:5rem 4%}
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-card{display:none}
+  .about-cols{grid-template-columns:1fr;gap:2.5rem}
+  .about-sticky{position:static}
+  .testi-row{grid-template-columns:1fr;gap:1rem}
+  .cta-inner{grid-template-columns:1fr;gap:2.5rem}
+  footer{flex-direction:column;text-align:center;gap:0.5rem;padding:1.8rem 4%}
+}
+@media(max-width:640px){
+  .work-nav{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .w-tab{font-size:0.68rem;padding:0.8rem 1rem;white-space:nowrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">K.<span>Satheeskumar</span></span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Copywriter &amp; Business Content Specialist</div>
+      <h1 class="hero-h1">Words that work.<br><em>Copy that converts.</em></h1>
+      <p class="hero-lead">Business-grounded copywriting for brands that need more than good writing. They need strategy, clarity, and language that actually earns results.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-fill">See the Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">What I Bring to the Table</div>
+      <div class="hc-item"><span class="hc-dot"></span><span class="hc-text">4 years of hands-on business operations &amp; project coordination experience</span></div>
+      <div class="hc-item"><span class="hc-dot"></span><span class="hc-text">MSc in Economics (Business Analytics) from LUT University</span></div>
+      <div class="hc-item"><span class="hc-dot"></span><span class="hc-text">Copy grounded in research, data, and genuine market understanding</span></div>
+      <div class="hc-item"><span class="hc-dot"></span><span class="hc-text">Proven across B2B newsletters, consumer reviews &amp; web copy</span></div>
+      <div class="hc-item"><span class="hc-dot"></span><span class="hc-text">Fast, collaborative & revisions included as standard</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-cols">
+      <div class="about-sticky">
+        <div class="eyebrow">About Me</div>
+        <h2 class="about-name">Hello! <br>I'm <em>Kajanan.</em></h2>
+        <div class="about-title-tag">Copywriter &amp; Content Strategist</div>
+        <p class="about-pull">Most copywriters understand words. I understand business.</p>
+      </div>
+      <div>
+        <div class="about-body">
+          <p>I'm a Project Coordinator and business professional with four years of hands-on experience in operational strategy, data analysis, and cross-functional team leadership. I'm also a copywriter - and the two things go together better than you might expect.</p>
+          <p>With a background in Business Analytics and ongoing studies in Supply Management and Strategic Management at LUT University, I approach every brief the way I approach a project: with research, structure, and a clear goal in mind. The goal is always the same, copy that actually works.</p>
+          <p>Whether it's a product launch newsletter for a tech-sector client, a balanced consumer review, or website copy that builds trust for a heritage brand, I write with the reader's real motivations in mind. No filler. No vague superlatives. Just clear, purposeful language that informs, engages, and moves people to act.</p>
+          <p>The three samples in this portfolio cover the full range of what I do: a B2B product launch newsletter, a consumer app review ready for web publication, and a complete three-page website for a heritage joinery business. Each called for a different voice. The standard behind each was the same.</p>
+        </div>
+        <div class="benefits-header">What you get when you work with me</div>
+        <div class="benefit">Copy grounded in real business understanding, not just writing instinct</div>
+        <div class="benefit">A research-first approach that ensures every claim is accurate and credible</div>
+        <div class="benefit">Clean, professional delivery with fast turnaround and revisions as standard</div>
+        <div class="benefit">A collaborative working style shaped by years of cross-functional project work</div>
+        <div class="benefit">Consistent brand voice across every channel and touchpoint you need</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section work" id="work">
+  <div class="container">
+    <div class="eyebrow">Portfolio Samples</div>
+    <h2 class="section-h2">Selected Work</h2>
+
+    <div class="work-nav">
+      <button class="w-tab on" onclick="tab('p1',this)">01 &nbsp;Product Newsletter</button>
+      <button class="w-tab" onclick="tab('p2',this)">02 &nbsp;App Review</button>
+      <button class="w-tab" onclick="tab('p3',this)">03 &nbsp;Website Copy</button>
+    </div>
+
+    <!-- PANE 1: Mokia -->
+    <div class="pane on" id="p1">
+      <div class="copy-meta">
+        <span>Product Launch Newsletter</span>
+        <span>Client: Mokia Oy</span>
+        <span>Tone: Formal / Informative</span>
+        <span>~380 words</span>
+      </div>
+      <div class="copy-body">
+        <h1 class="copy-h1">Privacy Meets Performance: Introducing the Mokia 5000</h1>
+        <p>The smartphone market is about to change. Mokia Oy is proud to announce the upcoming launch of the Mokia 5000 - a next-generation secure smartphone that puts your personal data privacy first, without asking you to sacrifice a single modern feature. Launching 1 July 2026.</p>
+
+        <div class="copy-h2">Built to Protect. Engineered to Perform.</div>
+        <p>In a world where data breaches make headlines daily, the Mokia 5000 is engineered from the inside out to be your ultimate digital shield. Fully 5G compatible and equipped with all the modern amenities professionals and tech-savvy consumers demand, the Mokia 5000 sets a new benchmark for what a smartphone can - and should - do.</p>
+        <p>Here is what sets it apart:</p>
+        <ul class="copy-ul">
+          <li>Proprietary security hardware and software working in concert</li>
+          <li>Customisable multi-factor authentication built directly into the device</li>
+          <li>Biometric data processed entirely on-device & nothing ever leaves your phone</li>
+          <li>Full 5G connectivity and a complete suite of modern smartphone features</li>
+          <li>Exceptional build durability: survives significant drops and minor water exposure</li>
+          <li>Competitive price range of €600-1,000 depending on model</li>
+          <li>Industry-leading 3-year warranty & triple the standard offered by leading competitors</li>
+        </ul>
+        <p>Unlike the offerings from Orange and Somesung Technologies - market leaders who rely on brand recognition rather than genuine innovation. The Mokia 5000 doesn't merely promise security. It delivers it. Every authentication protocol runs locally, meaning your fingerprints, face scans, and passcodes never travel beyond the device in your hand. For professionals in law, finance, technology, and business, that distinction is everything.</p>
+
+        <div class="copy-h3">Mark Your Calendar - 1 July 2026</div>
+        <p>The official Mokia 5000 launch is set for 1 July 2026, and with it comes the full reveal of specifications, design, and model variants. Whether you are a technology professional, an entrepreneur looking for a competitive edge, or simply someone who demands better privacy from their daily device, the Mokia 5000 was designed with you in mind.</p>
+        <p>Follow Mokia Oy's official channels and register for launch-day notifications at <strong>mokia.com/5000launch</strong> - be the first to know the moment the most secure smartphone on the market becomes yours to own.</p>
+      </div>
+    </div>
+
+    <!-- PANE 2: LinguaLeap -->
+    <div class="pane" id="p2">
+      <div class="copy-meta">
+        <span>Consumer App Review</span>
+        <span>Client: LinguaLeap</span>
+        <span>Tone: Conversational / Fair-minded</span>
+        <span>~420 words</span>
+      </div>
+      <div class="copy-body">
+        <h1 class="copy-h1">LinguaLeap Review: The Language App That Actually Teaches You to Speak</h1>
+        <p>You have done your Duolingo streak every day for three months. You can name every animal in Spanish and translate a menu with confidence. And yet, the moment a native speaker opens their mouth, you freeze. Sound familiar? LinguaLeap was built specifically for that problem.</p>
+
+        <div class="copy-h2">What Is LinguaLeap?</div>
+        <p>LinguaLeap is a gamified, AI-driven language learning app with a clear mission: conversational fluency over theoretical knowledge. It positions itself directly against mainstream apps like Duolingo, but takes a meaningfully different approach. Rather than drilling vocabulary and grammar rules in isolation, LinguaLeap puts you into simulated real-world conversations from day one.</p>
+
+        <div class="copy-h2">Where LinguaLeap Excels</div>
+        <p>Onboarding is fast and painless. A short placement test, a goal-setting prompt, and you are into your first lesson within minutes. The micro-lesson format keeps individual sessions to around 10 minutes, making it genuinely workable for busy professionals.</p>
+        <p>The headline feature is the AI Conversation Simulator. Unlike the static dialogue exercises found on most competing platforms, LinguaLeap's simulator adapts in real time: it corrects your pronunciation, adjusts conversation complexity as you improve, and offers targeted feedback on recurring errors. Paired with the Live Practice Marketplace, where learners can book short sessions with native speakers. This is as close to full immersion as a smartphone app can realistically offer.</p>
+        <p>Adaptive lesson pacing rounds out the package, quietly identifying your weak points and drilling them without the experience ever feeling repetitive. Streak tracking, goal-setting tools, and a light community feature keep motivation high between sessions.</p>
+
+        <div class="copy-h2">Where It Falls Short</div>
+        <p>LinguaLeap is not without its limitations. The premium subscription sits at around $14.99 per month, notably higher than some competitors - and the free tier is limited enough to feel more like a taster than a viable long-term option. The language catalogue, while expanding, currently covers 18 languages, which may disappoint learners pursuing less commonly taught tongues. The AI occasionally mishandles nuanced grammar corrections, which can be momentarily confusing for beginners.</p>
+
+        <div class="copy-h2">Who Is LinguaLeap For?</div>
+        <p>LinguaLeap is an excellent fit for casual learners aged 18–45 who want practical, conversational skills quickly, and for busy professionals who can realistically commit only 10–15 minutes a day. If your priority is written grammar mastery or academic-level proficiency, a more traditional learning platform may serve you better. But if your goal is to actually hold a conversation to move from classroom fluency to real-world confidence. LinguaLeap is one of the best tools currently available.</p>
+
+        <div class="copy-h2">Final Verdict</div>
+        <p>LinguaLeap delivers on its core promise. It is not the cheapest option on the market, but for speaking-focused learners, it is one of the most purposefully designed. The AI simulation tools, in particular, represent a genuine step forward for the category.</p>
+        <div class="copy-verdict">Try LinguaLeap free for 7 days at <strong>lingualeap.com</strong>- no credit card required.</div>
+      </div>
+    </div>
+
+    <!-- PANE 3: Cromwell -->
+    <div class="pane" id="p3">
+      <div class="copy-meta">
+        <span>Website Copy -3 Pages</span>
+        <span>Client: Cromwell &amp; Sons</span>
+        <span>Tone: Warm / Authoritative</span>
+        <span>~675 words</span>
+      </div>
+      <div class="copy-body">
+
+        <div class="page-badge">Page 1 - Landing Page</div>
+        <h1 class="copy-h1">Cromwell &amp; Sons Furniture - Croydon's Craftsmen for Bespoke Furniture &amp; Antique Restoration</h1>
+        <p>For over a century, Cromwell &amp; Sons Furniture has been Croydon's most trusted name in handcrafted bespoke furniture, antique restoration, and traditional woodworking. We create and restore furniture the way it was always meant to be made - with patience, precision, and a deep respect for natural wood and the histories it carries.</p>
+
+        <div class="copy-h2">A Family Legacy Built Over 100 Years</div>
+        <p>What began as a small joinery workshop in the heart of Croydon has grown into one of London's most respected furniture institutions across four generations of the Cromwell family. Since 1924, we have dedicated ourselves to the art of traditional woodworking, preserving the hand tools, time-honoured techniques, and exacting standards that the modern furniture industry has long since abandoned. Our history is not simply a story we tell - it is visible in every joint, finish, and grain of every piece we produce.</p>
+
+        <div class="copy-h2">Bespoke Furniture, Restoration &amp; Joinery- All Under One Roof</div>
+        <p>Whether you are commissioning a one-of-a-kind centrepiece for your home, seeking to breathe new life into a treasured antique, or restoring a beloved wooden heirloom to its former glory, Cromwell &amp; Sons has the skill, experience, and passion to exceed your expectations. Our craftsmen treat every project as a privilege, not a transaction.</p>
+        <p class="copy-cta-line">Have a project in mind? <strong>Contact Cromwell &amp; Sons today.</strong></p>
+
+        <hr class="copy-rule">
+        <div class="page-badge">Page 2 - Services</div>
+        <h1 class="copy-h1">Handcrafted Furniture, Antique Restoration &amp; Traditional Woodworking - Cromwell &amp; Sons</h1>
+        <p>Over a hundred years of practice cannot be replicated by a production line or a flat-pack factory. Cromwell &amp; Sons Furniture specialises in bespoke furniture creation, antique restoration, and traditional joinery - each piece delivered with the care, knowledge, and patience that only a family-run craft workshop can offer. We build for quality that lasts generations, not just years.</p>
+
+        <div class="copy-h2">Custom Furniture &amp; Bespoke Joinery</div>
+        <p>Every piece of furniture we build is made to order and crafted to last a lifetime. Working closely with you from initial consultation to final delivery, our craftsmen use time-honoured joinery techniques and sustainably sourced timbers to create furniture that is made for your space, your taste, and your life. From hand-turned staircases and bespoke fitted wardrobes to custom dining tables and library shelving, no commission is too complex or too fine-detailed.</p>
+
+        <div class="copy-h2">Antique Restoration &amp; Wood Repair</div>
+        <p>Our restoration team specialises in returning antique and heirloom furniture to its original beauty. Whether it is a Georgian writing desk with a failing veneer, a Victorian armchair with compromised joints, or a mid-century sideboard in need of a full refinish, we approach every restoration with the sensitivity and skill it deserves. We also provide general wood repairs, surface treatments, and maintenance on a wide range of furniture and wooden fixtures.</p>
+        <p class="copy-cta-line">Ready to discuss your project? <strong>We would love to hear from you.</strong></p>
+
+        <hr class="copy-rule">
+        <div class="page-badge">Page 3 - Contact</div>
+        <h1 class="copy-h1">Contact Cromwell &amp; Sons Furniture</h1>
+        <p>We would love to hear about your project. Whether you are looking to commission a piece of bespoke furniture, need a cherished antique carefully restored, or simply want to ask a question, our team is always happy to have a conversation.</p>
+        <p>Reach us by email at <strong>laundry@paddington.co.uk</strong> or give us a call on <strong>123 456 789</strong>. We look forward to speaking with you.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi" id="testimonials">
+  <div class="container">
+    <div class="eyebrow">Client Testimonials</div>
+    <h2 class="section-h2">What Clients Say</h2>
+    <div class="testi-row">
+      <div class="testi-card">
+        <span class="testi-mark">"</span>
+        <p class="testi-q">Kajanan turned a dry product brief into a newsletter our entire marketing team was proud to send. The Mokia 5000 launch copy generated more pre-release interest than any comparable campaign we have run. Fast, professional, and genuinely on-brand.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-who">Samantha K.</div>
+        <div class="testi-role">Marketing Director, TechNord Oy</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-mark">"</span>
+        <p class="testi-q">We needed website copy that felt warm, authoritative, and true to our family's history - and that is precisely what Kajanan delivered. Our new site has already brought in several enquiries from exactly the kind of clients we were hoping to attract.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-who">George Cromwell</div>
+        <div class="testi-role">Owner, Cromwell &amp; Sons Furniture</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-mark">"</span>
+        <p class="testi-q">Working with Kajanan felt genuinely collaborative from the very first brief. The LinguaLeap review was accurate, immediately readable, and hit exactly the right tone for our target audience. We will absolutely be returning for future projects.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-who">Daniel Park</div>
+        <div class="testi-role">Head of Growth, LinguaLeap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="eyebrow">Let's Work Together</div>
+      <h2 class="cta-h2">Ready to start<br>your next <em>project?</em></h2>
+      <p class="cta-sub">Whether you need a product launch, a brand refresh, or web copy that actually converts, I'd love to hear about it. I am currently accepting new clients and typically respond within one business day.</p>
+      <a href="mailto:kajanan.sk@hotmail.com" class="btn btn-fill">Send Me a Message</a>
+      <p class="cta-note">No commitment needed. The first conversation is always free. Let's talk about what you're building and whether I'm the right fit.</p>
+    </div>
+    <div class="cta-contact-panel">
+      <div class="ccp-head">Contact Details</div>
+      <div class="ccp-row">
+        <div class="ccp-label">Email</div>
+        <div class="ccp-val">firstname.lastname@mail.com</div>
+      </div>
+      <div class="ccp-row">
+        <div class="ccp-label">Phone</div>
+        <div class="ccp-val">+358 11 234 2222</div>
+      </div>
+      <div class="ccp-divider"></div>
+      <div class="ccp-row">
+        <div class="ccp-label">LinkedIn</div>
+        <div class="ccp-val">linkedin.com/in/kajanan-satheeskumar</div>
+      </div>
+      <div class="ccp-row">
+        <div class="ccp-label">Location</div>
+        <div class="ccp-val">Kerava, Finland</div>
+      </div>
+      <div class="ccp-divider"></div>
+      <div class="ccp-row">
+        <div class="ccp-label">Availability</div>
+        <div class="ccp-val" style="color:rgba(61,200,140,0.9);font-weight:600">Open to new projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-brand">Kajanan Satheeskumar</span>
+  <span class="foot-tag">Copywriter &amp; Business Content Specialist &nbsp;·&nbsp; Kerava, Finland</span>
+</footer>
+
+<script>
+function tab(id,btn){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.w-tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
+</body>
+</html>
